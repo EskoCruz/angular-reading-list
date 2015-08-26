@@ -1,0 +1,6 @@
+<aside class="col-sm-3">
+	<a href="http://www.amazon.com/gp/product/{{ book.isbn }}" target="_blank">
+		<img ng-src="http://images.amazon.com/images/P/{{ book.isbn }}.01.ZTZZZZZZ.jpg" class="full" alt="Cover of {{ book.title }}" />
+	</a>
+	<p class="rating" ng-class="{ goodRating: book.rating >= 3 }">{{ book.rating }}/5</p>
+</aside>

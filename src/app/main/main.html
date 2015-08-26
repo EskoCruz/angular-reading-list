@@ -1,0 +1,30 @@
+<div class="container">
+
+	<h1>Reading List</h1>
+
+	<div class="row">
+
+		<button class="btn btn-default btn-show-form" ng-click="reviewFormCtrl.showForm = !reviewFormCtrl.showForm">{{ reviewFormCtrl.showForm ? 'Cancel' : 'Create Review' }}</button>
+
+		<hr />
+
+		<review-form books="main.books" genres="main.genres" ng-show="reviewFormCtrl.showForm"></review-form>
+
+		<hr ng-show="reviewFormCtrl.showForm" />
+
+		<ul class="list-unstyled col-sm-8">
+			<li class="book row" ng-repeat="book in main.books | orderBy:'rank'">
+				<!-- Book Cover Template -->
+				<book-cover book="book"></book-cover>
+				<div class="col-sm-9">
+					<h3><a href="http://www.amazon.com/gp/product/{{ book.isbn }}" target="_blank">{{ book.title }}</a></h3>
+					<cite class="text-muted">written by {{ book.author }}</cite>
+					<p>{{ book.review }}</p>
+					<!-- Genres Template -->
+					<book-genres genres="book.genres"></book-genres>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+</div>
